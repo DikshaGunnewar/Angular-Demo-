@@ -1,0 +1,87 @@
+
+<div [@routerTransition]>
+
+<app-modal></app-modal>
+<!-- Modal -->
+<div class="modal fade" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="addAccountTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAccountTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--User social acc panel-->
+<div class="row">
+    <div *ngFor="let post of posts" class="list-group col-lg-4 ">
+        <div class="panel">
+            <div class="list-group-item pane_head">
+                <div class="text-center">  {{post.UserName}}  </div>
+           <div class="fa">
+               <!--<i [class]="acc.fa_url" aria-hidden="true"></i>-->
+           </div>
+           </div>
+
+            <div class="list-group-item pane_foot">
+
+           <div class="img-div">
+           <img src="{{post.ProfilepicUrl}}"  alter="Image" class="image_url" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-4">
+                        <div class="pane_card_color text-center">yes</div>
+                        <div class="pane_card_color text-center">Running</div>
+                        <button class="btn dashboard-btn" (click)="btnClick()">Settings</button>
+                    </div>
+                    <div class="col col-lg-4">
+                        <div class="pane_card_color text-center">{{post.Followers}} </div>
+                        <div class="pane_card_color text-center">Followers</div>
+                        <button class="btn dashboard-btn" (click)="btnClick()">Stats</button>
+                    </div>
+                    <div class="col col-lg-4">
+                        <div  class="pane_card_color text-center"> {{post.Provider}}  </div>
+                        <div  class="pane_card_color text-center">Provider</div>
+                        <button class="btn  dashboard-btn" (click)="btnClick()">Access</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+        <p>Token:<b>{{access_token}}</b></p>
+        <p>Expires In:<b>{{expires_in}}</b></p>
+        <p>Token Type:<b>{{token_type}}</b></p>
+        <p>Username:<b>{{userName}}</b></p>   
+
+
+
+
+<!--modal button-->
+<!--<button class="waves-effect waves-light btn btn-primary" data-toggle="modal" data-target="#addAccount" >Add Account</button>-->
+<!--modal button end-->
+
+
+
+<!--Modal end-->
+<!--<button class="waves-effect waves-light btn" (click)="btnClick()">Settings</button>-->
+ <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+<hr />
+   
